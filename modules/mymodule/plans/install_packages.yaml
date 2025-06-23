@@ -1,0 +1,17 @@
+version: 2
+description: Install brew packages one at a time on a target
+
+parameters:
+  packages:
+    type: Array[String]
+  targets:
+    type: TargetSpec
+    default: localhost
+
+steps:
+  - name: loop_and_install
+    plan: install_package_loop
+    parameters:
+      packages: "{{ packages }}"
+      targets: "{{ targets }}"
+

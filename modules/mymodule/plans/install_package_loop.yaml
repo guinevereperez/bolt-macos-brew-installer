@@ -1,0 +1,18 @@
+version: 2
+
+parameters:
+  packages:
+    type: Array[String]
+  targets:
+    type: TargetSpec
+
+steps:
+  - name: install_all
+    eval: |
+      $results = []
+      $packages.each |$pkg| {
+        $res = run_task('mymodule::install_brew_package', $targets, package => $pkg)
+        $results.push($res)
+      }
+      $results
+

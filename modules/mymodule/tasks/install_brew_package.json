@@ -1,0 +1,9 @@
+{
+  "parameters": {
+    "package": {
+      "type": "String",
+      "description": "The Homebrew package to install"
+    }
+  },
+  "input_method": "environment"
+}
